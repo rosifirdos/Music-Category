@@ -1,0 +1,127 @@
+class Genre:
+    def __init__(self, name):
+        self.name = name
+        self.artists = []
+
+    def add_artist(self, artist):
+        if not any(a.name.lower() == artist.name.lower() for a in self.artists):
+            self.artists.append(artist)
+            return True
+        return False
+
+    def get_song_count(self):
+        return sum(artist.get_song_count() for artist in self.artists)
+
+class Artist:
+    def __init__(self, name):
+        self.name = name
+        self.albums = []
+
+    def add_album(self, album):
+        if not any(a.name.lower() == album.name.lower() for a in self.albums):
+            self.albums.append(album)
+            return True
+        return False
+
+    def get_song_count(self):
+        return sum(album.get_song_count() for album in self.albums)
+
+class Album:
+    def __init__(self, name):
+        self.name = name
+        self.songs = []
+
+    def add_song(self, song):
+        if not any(s.title.lower() == song.title.lower() for s in self.songs):
+            self.songs.append(song)
+            return True
+        return False
+
+    def remove_song(self, song_title):
+        self.songs = [song for song in self.songs if song.title.lower() != song_title.lower()]
+
+    def get_song_count(self):
+        return len(self.songs)
+
+class Song:
+    def __init__(self, title, duration, year, album):
+        self.title = title
+        self.duration = duration
+        self.year = year
+        self.album = album
+
+# Fungsi untuk menampilkan struktur
+def print_genre(genre, level=0):
+    indent = "  " * level
+    print(f"{indent}Genre: {genre.name} ({genre.get_song_count()} songs)")
+    for artist in genre.artists:
+        print_artist(artist, level + 1)
+
+def print_artist(artist, level=0):
+    indent = "  " * level
+    print(f"{indent}Artist: {artist.name}")
+    for album in artist.albums:
+        print_album(album, level + 1)
+
+def print_album(album, level=0):
+    indent = "  " * level
+    print(f"{indent}Album: {album.name}")
+    for song in album.songs:
+        print_song(song, level + 1)
+
+def print_song(song, level=0):
+    indent = "  " * level
+    print(f"{indent}Song: {song.title} - {song.duration}, {song.year}")
+
+# Membuat data contoh untuk aplikasi musik
+pop_punk = Genre("Pop Punk")
+hardcore = Genre("Hardcore")
+genres = [pop_punk, hardcore]
+
+green_day = Artist("Green Day")
+pee_wee_gaskins = Artist("Pee Wee Gaskins")
+kenya = Artist("Kenya")
+defy = Artist("Defy")
+
+american_idiot = Album("American Idiot")
+youth_not_wasted = Album("A Youth Not Wasted")
+trust_no_one = Album("Trust No One")
+who_suffer = Album("Who Suffer?")
+
+pop_punk.add_artist(green_day)
+pop_punk.add_artist(pee_wee_gaskins)
+hardcore.add_artist(kenya)
+hardcore.add_artist(defy)
+
+green_day.add_album(american_idiot)
+pee_wee_gaskins.add_album(youth_not_wasted)
+kenya.add_album(trust_no_one)
+defy.add_album(who_suffer)
+
+jesus_of_suburbia = Song("Jesus of Suburbia", "9:08", 2004, american_idiot)
+sassy_girl = Song("Sassy Girl", "3:34", 2016, youth_not_wasted)
+sanity = Song("Sanity", "3:03", 2024, trust_no_one)
+be_gone = Song("Be Gone!", "1:47", 2022, who_suffer)
+conquer = Song("Conquer", "1:47", 2022, who_suffer)
+
+american_idiot.add_song(jesus_of_suburbia)
+youth_not_wasted.add_song(sassy_girl)
+trust_no_one.add_song(sanity)
+who_suffer.add_song(be_gone)
+who_suffer.add_song(conquer)
+
+# Menampilkan struktur
+print("Koleksi Musik Awan:")
+for genre in genres:
+    print_genre(genre)
+
+# Menampilkan struktur setelah menghapus lagu
+print("\nMenghapus lagu 'Conquer' dari album 'Who Suffer?':")
+who_suffer.remove_song("Conquer")
+for genre in genres:
+    print_genre(genre)
+
+# Menampilkan statistik
+print("\nStatistik Jumlah Lagu per Genre:")
+for genre in genres:
+    print(f"Genre: {genre.name} - {genre.get_song_count()} songs")
