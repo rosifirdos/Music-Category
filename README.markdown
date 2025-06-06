@@ -25,20 +25,6 @@ Program menggunakan **pohon n-ary** (general tree) dengan karakteristik berikut:
 - Lingkungan Jupyter Notebook (opsional, untuk menjalankan file `kategori_musik.ipynb`).
 - Tidak ada dependensi eksternal.
 
-## Instalasi
-1. Clone repository ini ke komputer Anda:
-   ```bash
-   git clone https://github.com/rosifirdos/music-library-organizer.git
-   ```
-2. Masuk ke direktori proyek:
-   ```bash
-   cd music-library-organizer
-   ```
-3. (Opsional) Jika menggunakan Jupyter Notebook, pastikan Jupyter terinstal:
-   ```bash
-   pip install jupyter
-   ```
-
 ## Cara Menjalankan
 1. **Jalankan di Jupyter Notebook**:
    - Buka file `kategori_musik.ipynb` di Jupyter Notebook:
