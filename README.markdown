@@ -100,26 +100,3 @@ Genre: Hardcore - 2 songs
 music-library-organizer/
 ├── kategori_musik.ipynb  # File utama berisi kode aplikasi
 └── README.md             # Dokumentasi proyek
-```
-
-## Kontribusi
-1. Fork repository ini.
-2. Buat branch baru untuk fitur atau perbaikan:
-   ```bash
-   git checkout -b fitur-anda
-   ```
-3. Commit perubahan Anda:
-   ```bash
-   git commit -m "Menambahkan fitur X"
-   ```
-4. Push ke branch Anda:
-   ```bash
-   git push origin fitur-anda
-   ```
-5. Buat Pull Request di GitHub.
-
-## Lisensi
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
-
-## Kontak
-Untuk pertanyaan atau saran, silakan hubungi melalui [GitHub Issues](https://github.com/<username>/music-library-organizer/issues).
