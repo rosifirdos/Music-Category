@@ -28,7 +28,7 @@ Program menggunakan **pohon n-ary** (general tree) dengan karakteristik berikut:
 ## Instalasi
 1. Clone repository ini ke komputer Anda:
    ```bash
-   git clone https://github.com/<username>/music-library-organizer.git
+   git clone https://github.com/rosifirdos/music-library-organizer.git
    ```
 2. Masuk ke direktori proyek:
    ```bash
